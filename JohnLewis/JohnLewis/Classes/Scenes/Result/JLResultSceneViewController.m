@@ -50,6 +50,8 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 	// Do any additional setup after loading the view.
 	self.view.backgroundColor = [UIColor whiteColor];
 	
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(shareAction)];
+    
 	[self setupData];
 	[self setupShareButton];
 	[self setupCollectionView];
@@ -180,8 +182,7 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 	_collectionViewTutorial.frame = CGRectMake(69.0, CGRectGetMidY(self.view.frame) + 20.0f, self.view.frame.size.width * 0.7f, 120.0f);
     _printCollectionView.frame = CGRectMake(CGRectGetMidX(self.view.frame)-50, 105, 85, 85);
     _lampCollectionView.frame = CGRectMake(CGRectGetMaxX(self.view.frame)-160, CGRectGetMidY(self.view.frame) -60.0f, 80, 210.0f);
-	_btnShare.frame = CGRectMake(self.view.frame.size.width - 100.0f, 0.0f, 150, 75);
-	_btnShare.frame = CGRectMake(self.view.frame.size.width - 110.0f, 10.0f, 100, 75);
+//	_btnShare.frame = CGRectMake(self.view.frame.size.width - 110.0f, 10.0f, 100, 75);
 	_detailsView.frame = _labelTitle.frame = _labelPrice.frame = CGRectMake(CGRectGetMidX(self.view.frame), self.view.frame.size.height, 120, 50);
 }
 
@@ -231,16 +232,29 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-	NSDictionary *dict = _sofaDetails[indexPath.row];
-	_labelTitle.text = [NSString stringWithFormat:@"%@", dict[@"title"]];
-	_labelPrice.text = [NSString stringWithFormat:@"Price: %@", dict[@"price"]];
-	
+    
+    if (collectionView == self.collectionViewTutorial) {
+        NSDictionary *dict = _sofaDetails[indexPath.row];
+        _labelTitle.text = [NSString stringWithFormat:@"%@", dict[@"title"]];
+        _labelPrice.text = [NSString stringWithFormat:@"Price: %@", dict[@"price"]];
+    }
+    else if (collectionView == self.printCollectionView) {
+        NSDictionary *dict = _printDetails[indexPath.row];
+        _labelTitle.text = [NSString stringWithFormat:@"%@", dict[@"title"]];
+        _labelPrice.text = [NSString stringWithFormat:@"Price: %@", dict[@"price"]];
+    }
+    else if (collectionView == self.lampCollectionView) {
+        NSDictionary *dict = _lampDetails[indexPath.row];
+        _labelTitle.text = [NSString stringWithFormat:@"%@", dict[@"title"]];
+        _labelPrice.text = [NSString stringWithFormat:@"Price: %@", dict[@"price"]];
+    }
+    
 	[_labelTitle sizeToFit];
 	[_labelPrice sizeToFit];
 	
 	_detailsView.alpha = _labelPrice.alpha = _labelTitle.alpha = 0.0f;
 	
-	_detailsView.frame = CGRectMake(CGRectGetMidX(_collectionViewTutorial.frame) - 75.0f, CGRectGetMinY(_collectionViewTutorial.frame) - 124.0f, 160.0f, 110.0f);
+	_detailsView.frame = CGRectMake(CGRectGetMinX(_collectionViewTutorial.frame) + 20.0f, CGRectGetMinY(_collectionViewTutorial.frame) - 124.0f, 160.0f, 110.0f);
 	_detailsView.layer.cornerRadius = 10;
 	_detailsView.layer.masksToBounds = YES;
 	_labelTitle.frame = CGRectMake(0.0f, 2.0f, _detailsView.frame.size.width - 10.0f, 80.0f);
