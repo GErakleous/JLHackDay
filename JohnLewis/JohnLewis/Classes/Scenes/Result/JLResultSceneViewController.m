@@ -28,6 +28,10 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 @property (nonatomic, strong) NSArray *lampDetails;
 @property (nonatomic, strong) UIButton *btnShare;
 
+@property (nonatomic, strong) UIView *detailsView;
+@property (nonatomic, strong) UILabel *labelTitle;
+@property (nonatomic, strong) UILabel *labelPrice;
+
 @end
 
 @implementation JLResultSceneViewController
@@ -36,6 +40,9 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 	[super viewWillAppear:animated];
 	NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
 	[[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+	
+	self.navigationController.title = @"My Cool Room";
+	self.title = @"My Cool Room";
 }
 
 - (void)viewDidLoad {
@@ -72,6 +79,7 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 #pragma mark - Data Setup
 - (void)setupData {
 	_sofaImages = @[[UIImage imageNamed:@"sofa1.png"], [UIImage imageNamed:@"sofa2.png"], [UIImage imageNamed:@"sofa3.png"], [UIImage imageNamed:@"sofa4.png"], [UIImage imageNamed:@"sofa5.png"], [UIImage imageNamed:@"sofa6.png"]];
+<<<<<<< HEAD
     _sofaDetails = @[@{@"title": @"John Lewis Cromwell Grand Chesterfield Sofa", @"price":  @"£1599"},
                      @{@"title": @"John Lewis Inverness Grand Loose Cover Sofa", @"price":  @"£1800"},
                      @{@"title": @"Duresta Two Seater Sofa", @"price":  @"£499"},
@@ -89,6 +97,14 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
     _lampDetails = @[@{@"title": @"Bethan Gray for John Lewis Noah Floor Lamp", @"price":  @"£290"},
                      @{@"title": @"John Lewis Clarence Floor Lamp, Washed Grey", @"price":  @"£340"},
                      @{@"title": @"John Lewis Aki Sheesham Floor Lamp, Natural", @"price":  @"£310"}];
+=======
+	_sofaDetails = @[@{@"title": @"John Lewis Cromwell Grand Chesterfield Sofa", @"price":  @"£1599"},
+  @{@"title": @"John Lewis Inverness Grand Loose Cover Sofa", @"price":  @"£1800"},
+  @{@"title": @"Duresta Two Seater Sofa", @"price":  @"£499"},
+  @{@"title": @"John Lewis Harrison Medium Sofa", @"price":  @"£849"},
+  @{@"title": @"John Lewis Bingham Medium Sofa", @"price":  @"£849"},
+  @{@"title": @"Collins and Hayes Sofa", @"price":  @"£650"}];
+>>>>>>> c2d3516033d3956f129aa73e5ffa06f4db894b71
 }
 
 #pragma mark - UI setup
@@ -96,7 +112,7 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 	UIButton *buttonShare = [UIButton buttonWithType:UIButtonTypeSystem];
 	[buttonShare addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
 	[buttonShare setTitle:@"Share" forState:UIControlStateNormal];
-	buttonShare.tintColor = [UIColor yellowColor];
+	buttonShare.tintColor = [UIColor redColor];
 	[self.view addSubview:buttonShare];
 	_btnShare = buttonShare;
 }
@@ -119,6 +135,7 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 	[self.view addSubview:collectionView];
 	_collectionViewTutorial = collectionView;
 	
+<<<<<<< HEAD
     UICollectionViewFlowLayout *printFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     printFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     printFlowLayout.minimumInteritemSpacing = 0;
@@ -148,6 +165,23 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
     lampCollectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:lampCollectionView];
     _lampCollectionView = lampCollectionView;
+=======
+	_detailsView = [[UIView alloc] init];
+	_detailsView.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
+	[self.view addSubview:_detailsView];
+	
+	_labelTitle = [[UILabel alloc] init];
+	_labelTitle.textColor = [UIColor orangeColor];
+	_labelTitle.textAlignment = NSTextAlignmentCenter;
+	_labelTitle.numberOfLines = 3;
+	[_detailsView addSubview:_labelTitle];
+	
+	_labelPrice = [[UILabel alloc] init];
+	_labelPrice.textAlignment = NSTextAlignmentCenter;
+	_labelPrice.textColor = [UIColor orangeColor];
+	[_detailsView addSubview:_labelPrice];
+	_detailsView.alpha = _labelPrice.alpha = _labelTitle.alpha = 0.0f;
+>>>>>>> c2d3516033d3956f129aa73e5ffa06f4db894b71
 }
 
 - (void)viewWillLayoutSubviews {
@@ -156,9 +190,14 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 
 - (void)setupLayout {
 	_collectionViewTutorial.frame = CGRectMake(69.0, CGRectGetMidY(self.view.frame) + 20.0f, self.view.frame.size.width * 0.7f, 120.0f);
+<<<<<<< HEAD
     _printCollectionView.frame = CGRectMake(CGRectGetMidX(self.view.frame)-50, 105, 85, 85);
     _lampCollectionView.frame = CGRectMake(CGRectGetMaxX(self.view.frame)-160, CGRectGetMidY(self.view.frame) -60.0f, 80, 210.0f);
 	_btnShare.frame = CGRectMake(self.view.frame.size.width - 100.0f, 0.0f, 150, 75);
+=======
+	_btnShare.frame = CGRectMake(self.view.frame.size.width - 110.0f, 10.0f, 100, 75);
+	_detailsView.frame = _labelTitle.frame = _labelPrice.frame = CGRectMake(CGRectGetMidX(self.view.frame), self.view.frame.size.height, 120, 50);
+>>>>>>> c2d3516033d3956f129aa73e5ffa06f4db894b71
 }
 
 #pragma mark - Collection View Datasource
@@ -204,6 +243,35 @@ static NSString * const kJLLampCellIdentifier =	@"JLLampCollectionViewCell";
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
 	JLSwipeCollectionViewCell *tutorialCell = (JLSwipeCollectionViewCell *)cell;
 	[tutorialCell startAnimation];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+	NSDictionary *dict = _sofaDetails[indexPath.row];
+	_labelTitle.text = [NSString stringWithFormat:@"%@", dict[@"title"]];
+	_labelPrice.text = [NSString stringWithFormat:@"Price: %@", dict[@"price"]];
+	
+	[_labelTitle sizeToFit];
+	[_labelPrice sizeToFit];
+	
+	_detailsView.alpha = _labelPrice.alpha = _labelTitle.alpha = 0.0f;
+	
+	_detailsView.frame = CGRectMake(CGRectGetMidX(_collectionViewTutorial.frame) - 75.0f, CGRectGetMinY(_collectionViewTutorial.frame) - 124.0f, 160.0f, 110.0f);
+	_detailsView.layer.cornerRadius = 10;
+	_detailsView.layer.masksToBounds = YES;
+	_labelTitle.frame = CGRectMake(0.0f, 2.0f, _detailsView.frame.size.width - 10.0f, 80.0f);
+	_labelPrice.frame = CGRectMake(0.0f, CGRectGetMaxY(_labelTitle.frame), _detailsView.frame.size.width - 10.0f, 20.0f);
+	
+	[UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+		_detailsView.alpha = _labelPrice.alpha = _labelTitle.alpha = 1.0f;
+	} completion:nil];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	[UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+		_detailsView.alpha = _labelPrice.alpha = _labelTitle.alpha = 0.0f;
+	} completion:^(BOOL finished) {
+//		_detailsView.frame = _labelTitle.frame = _labelPrice.frame = CGRectMake(CGRectGetMidX(self.view.frame), self.view.frame.size.height, 120, 50);
+	}];
 }
 
 @end

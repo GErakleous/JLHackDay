@@ -35,6 +35,9 @@
 	NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
 	[[UIDevice currentDevice] setValue:value forKey:@"orientation"];
 	_contentView.hidden = NO;
+	
+	self.navigationController.title = @"Take A Picture";
+	self.title = @"Take A Picture";
 }
 
 - (void)viewDidLoad {
@@ -58,15 +61,15 @@
 	
 	UIImageView *imgView = [[UIImageView alloc] init];
 	imgView.frame = CGRectMake(0.0, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
-	imgView.backgroundColor = [UIColor yellowColor];
+	imgView.backgroundColor = [UIColor lightGrayColor];
 	_imageView = imgView;
 	[contentView addSubview:imgView];
 	
 	UIButton *buttonCapture = [UIButton buttonWithType:UIButtonTypeSystem];
 	[buttonCapture addTarget:self action:@selector(captureImage) forControlEvents:UIControlEventTouchUpInside];
-//	[buttonCapture setImage:[UIImage imageNamed:@"camera-shutter.png"] forState:UIControlStateNormal];
-//	buttonCapture.frame = CGRectMake((contentView.frame.size.width - 80) * 0.5f, contentView.frame.size.height - 140, 80, 80);
-	[buttonCapture setTitle:@"Capture Image" forState:UIControlStateNormal];
+	[buttonCapture setImage:[UIImage imageNamed:@"camera-shutter.png"] forState:UIControlStateNormal];
+	buttonCapture.frame = CGRectMake((contentView.frame.size.width - 80) * 0.5f, contentView.frame.size.height - 140, 80, 80);
+//	[buttonCapture setTitle:@"Capture Image" forState:UIControlStateNormal];
 	buttonCapture.frame = CGRectMake((contentView.frame.size.width - 150) * 0.5f, contentView.frame.size.height - 130, 150, 75);
 	buttonCapture.tintColor = [UIColor redColor];
 	[contentView addSubview:buttonCapture];
