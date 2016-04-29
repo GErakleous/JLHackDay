@@ -10,6 +10,7 @@
 
 NSString * const kJLAPIWomensCategoryID = @"1001083";
 NSString * const kJLAPIMensCategoryID = @"1001093";
+NSString * const kJLAPISofasCategoryID = @"1064";
 
 static NSString * const kBaseURL = @"http://eu-poc1.cortexica-cloud.com/api/";
 static NSString * const kApiKey = @"JOHK2YL0LMYXES6WQ64SCZ4TY5CHB8X0D12I5FJZFR4032XX";

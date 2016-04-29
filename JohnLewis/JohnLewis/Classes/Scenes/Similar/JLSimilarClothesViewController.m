@@ -105,7 +105,7 @@
 	} completion:^(BOOL finished) {
 		//		[JLAPIEndPoints postSearchSimilarImage:[UIImage imageNamed:@"Naji"]
 		[JLAPIEndPoints postSearchSimilarImageURL:url
-									   categoryID:kJLAPIWomensCategoryID success:^(NSURLSessionDataTask *task, id responseObject) {
+									   categoryID:kJLAPISofasCategoryID success:^(NSURLSessionDataTask *task, id responseObject) {
 										   
 										   JLFashionSearchResult *fashionSR = [[JLFashionManager sharedManager] addFashionSearchResultWithInfo:responseObject];
 										   

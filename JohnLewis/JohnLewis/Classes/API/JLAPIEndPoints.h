@@ -11,6 +11,7 @@
 
 extern NSString * const kJLAPIWomensCategoryID;
 extern NSString * const kJLAPIMensCategoryID;
+extern NSString * const kJLAPISofasCategoryID;
 
 typedef void(^successBlock)(NSURLSessionDataTask *task, id responseObject);
 typedef void(^failureBlock)(NSURLSessionDataTask *task, NSError *error);
