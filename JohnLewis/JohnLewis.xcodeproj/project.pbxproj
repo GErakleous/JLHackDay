@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		162B2F3AE186D08B3439BE0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E75C0BC4314B5F7F5C2DE7 /* libPods.a */; };
+		64C4369F1CD3752E00CF2EE2 /* JLResultSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C4369E1CD3752E00CF2EE2 /* JLResultSceneViewController.m */; };
 		67D253D11CCF697D0055F7C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D253D01CCF697D0055F7C0 /* main.m */; };
 		67D253DA1CCF697D0055F7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67D253D81CCF697D0055F7C0 /* Main.storyboard */; };
 		67D253DC1CCF697D0055F7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67D253DB1CCF697D0055F7C0 /* Assets.xcassets */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		45E75C0BC4314B5F7F5C2DE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83BC015B48111877A1FCDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		64C4369D1CD3752E00CF2EE2 /* JLResultSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLResultSceneViewController.h; path = Result/JLResultSceneViewController.h; sourceTree = "<group>"; };
+		64C4369E1CD3752E00CF2EE2 /* JLResultSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JLResultSceneViewController.m; path = Result/JLResultSceneViewController.m; sourceTree = "<group>"; };
 		67D253CC1CCF697D0055F7C0 /* JohnLewis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JohnLewis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67D253D01CCF697D0055F7C0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		67D253D91CCF697D0055F7C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +138,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		64C4369B1CD374DE00CF2EE2 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				64C4369D1CD3752E00CF2EE2 /* JLResultSceneViewController.h */,
+				64C4369E1CD3752E00CF2EE2 /* JLResultSceneViewController.m */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
 		67D253C31CCF697D0055F7C0 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +225,7 @@
 		67D254051CCF69EA0055F7C0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				64C4369B1CD374DE00CF2EE2 /* Result */,
 				67D254061CCF69EA0055F7C0 /* Home */,
 				67D254121CCF8A360055F7C0 /* Similar */,
 			);
@@ -492,6 +505,7 @@
 				67D254091CCF69EA0055F7C0 /* JLAppDelegate.m in Sources */,
 				67D2542D1CCFC09F0055F7C0 /* JLSimilarClothesViewController.m in Sources */,
 				67D254241CCFA49B0055F7C0 /* NSDictionary+HYSafeAccess.m in Sources */,
+				64C4369F1CD3752E00CF2EE2 /* JLResultSceneViewController.m in Sources */,
 				67D2540F1CCF78030055F7C0 /* JLAPIEndPoints.m in Sources */,
 				67D254161CCF8CE50055F7C0 /* JLFashionManager.m in Sources */,
 				67D254431CCFD3560055F7C0 /* UILabel+SCUIHelper.m in Sources */,
