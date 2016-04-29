@@ -15,6 +15,7 @@
 #import "JLFashionManager.h"
 
 #import "JLImageCollectionViewCell.h"
+#import "JLResultSceneViewController.h"
 
 @interface JLHomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -28,6 +29,13 @@
 
 
 @implementation JLHomeViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	NSNumber *value = [NSNumber numberWithInt:UIInterfaceOrientationPortrait];
+	[[UIDevice currentDevice] setValue:value forKey:@"orientation"];
+	_contentView.hidden = NO;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -49,22 +57,26 @@
 	_contentView = contentView;
 	
 	UIImageView *imgView = [[UIImageView alloc] init];
-	imgView.frame = CGRectMake(0.0, 0.0f, self.view.frame.size.width, self.view.frame.size.height * 0.7f);
+	imgView.frame = CGRectMake(0.0, 0.0f, self.view.frame.size.width, self.view.frame.size.height);
 	imgView.backgroundColor = [UIColor yellowColor];
 	_imageView = imgView;
 	[contentView addSubview:imgView];
 	
 	UIButton *buttonCapture = [UIButton buttonWithType:UIButtonTypeSystem];
 	[buttonCapture addTarget:self action:@selector(captureImage) forControlEvents:UIControlEventTouchUpInside];
+//	[buttonCapture setImage:[UIImage imageNamed:@"camera-shutter.png"] forState:UIControlStateNormal];
+//	buttonCapture.frame = CGRectMake((contentView.frame.size.width - 80) * 0.5f, contentView.frame.size.height - 140, 80, 80);
 	[buttonCapture setTitle:@"Capture Image" forState:UIControlStateNormal];
 	buttonCapture.frame = CGRectMake((contentView.frame.size.width - 150) * 0.5f, contentView.frame.size.height - 130, 150, 75);
+	buttonCapture.tintColor = [UIColor redColor];
 	[contentView addSubview:buttonCapture];
 	_btnCaptureImage = buttonCapture;
 	
 	UIButton *buttonSearch = [UIButton buttonWithType:UIButtonTypeSystem];
 	[buttonSearch addTarget:self action:@selector(captureSearch) forControlEvents:UIControlEventTouchUpInside];
 	[buttonSearch setTitle:@"Search" forState:UIControlStateNormal];
-	buttonSearch.frame = CGRectMake((contentView.frame.size.width - 150) * 0.5f, contentView.frame.size.height - 200, 150, 75);
+	buttonCapture.tintColor = [UIColor redColor];
+	buttonSearch.frame = CGRectMake((contentView.frame.size.width - 150) * 0.5f, contentView.frame.size.height - 180, 150, 75);
 	buttonSearch.hidden = YES;
 	[contentView addSubview:buttonSearch];
 	_btnSearch = buttonSearch;
@@ -99,16 +111,22 @@
 		[JLAPIEndPoints postSearchSimilarImage:_imageView.image
 									categoryID:kJLAPISofasCategoryID success:^(NSURLSessionDataTask *task, id responseObject) {
 										
-										JLFashionSearchResult *fashionSR = [[JLFashionManager sharedManager] addFashionSearchResultWithInfo:responseObject];
+//										JLFashionSearchResult *fashionSR = [[JLFashionManager sharedManager] addFashionSearchResultWithInfo:responseObject];
+//										
+//										JLSimilarClothesViewController *similarClothesVC = [[JLSimilarClothesViewController alloc] init];
+//										similarClothesVC.fashionSearchResult = fashionSR;
+//										
+//										JLSwipeViewController *swipeVC = [[JLSwipeViewController alloc] init];
 										
-										JLSimilarClothesViewController *similarClothesVC = [[JLSimilarClothesViewController alloc] init];
-										similarClothesVC.fashionSearchResult = fashionSR;
+										JLResultSceneViewController *resultVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([JLResultSceneViewController class])];
+										
 										
 										[UIView animateWithDuration:0.25 animations:^{
 											blockerView.alpha = 0.0;
 										} completion:^(BOOL finished) {
 											[blockerView removeFromSuperview];
-											[self.navigationController pushViewController:similarClothesVC animated:YES];
+//											[self.navigationController pushViewController:similarClothesVC animated:YES];
+											[self.navigationController pushViewController:resultVC animated:YES];
 										}];
 										
 //										collectionView.hidden = NO;

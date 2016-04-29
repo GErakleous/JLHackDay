@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		162B2F3AE186D08B3439BE0E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E75C0BC4314B5F7F5C2DE7 /* libPods.a */; };
+		2203D6AB1CD38D74002C5CA9 /* JLSwipeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2203D6A81CD38D74002C5CA9 /* JLSwipeCollectionViewCell.m */; };
 		64C4369F1CD3752E00CF2EE2 /* JLResultSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C4369E1CD3752E00CF2EE2 /* JLResultSceneViewController.m */; };
 		67D253D11CCF697D0055F7C0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67D253D01CCF697D0055F7C0 /* main.m */; };
 		67D253DA1CCF697D0055F7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67D253D81CCF697D0055F7C0 /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2203D6A71CD38D74002C5CA9 /* JLSwipeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSwipeCollectionViewCell.h; sourceTree = "<group>"; };
+		2203D6A81CD38D74002C5CA9 /* JLSwipeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSwipeCollectionViewCell.m; sourceTree = "<group>"; };
 		45E75C0BC4314B5F7F5C2DE7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D83BC015B48111877A1FCDA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		64C4369D1CD3752E00CF2EE2 /* JLResultSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JLResultSceneViewController.h; path = Result/JLResultSceneViewController.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 			children = (
 				64C4369D1CD3752E00CF2EE2 /* JLResultSceneViewController.h */,
 				64C4369E1CD3752E00CF2EE2 /* JLResultSceneViewController.m */,
+				2203D6A71CD38D74002C5CA9 /* JLSwipeCollectionViewCell.h */,
+				2203D6A81CD38D74002C5CA9 /* JLSwipeCollectionViewCell.m */,
 			);
 			name = Result;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				67D254301CCFC6B60055F7C0 /* JLSimilarClothesDetailsViewController.m in Sources */,
 				67D254411CCFD3560055F7C0 /* UIColor+SCColors.m in Sources */,
 				67D254091CCF69EA0055F7C0 /* JLAppDelegate.m in Sources */,
+				2203D6AB1CD38D74002C5CA9 /* JLSwipeCollectionViewCell.m in Sources */,
 				67D2542D1CCFC09F0055F7C0 /* JLSimilarClothesViewController.m in Sources */,
 				67D254241CCFA49B0055F7C0 /* NSDictionary+HYSafeAccess.m in Sources */,
 				64C4369F1CD3752E00CF2EE2 /* JLResultSceneViewController.m in Sources */,
